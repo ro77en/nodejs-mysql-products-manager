@@ -1,6 +1,9 @@
 // import express module
 const express = require('express');
 
+// import express-handlebars
+const { engine } = require('express-handlebars');
+
 // import config.json
 const config = require('./config.json');
 
@@ -9,6 +12,11 @@ const mysql = require('mysql2');
 
 // app
 const app = express();
+
+// express-handlebars config
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('views', './views');
 
 // mysql connection config
 const connection = mysql.createConnection(config.db);
@@ -19,10 +27,9 @@ connection.connect((err) => {
     console.log('successfully connected!');
 });
 
-// hello world route
+// main route
 app.get('/', (req, res) => {
-    res.write('hello world');
-    res.end();
+    res.render('forms');
 });
 
 // server
