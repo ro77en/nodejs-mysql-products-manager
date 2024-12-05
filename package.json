@@ -1,0 +1,25 @@
+{
+  "name": "products-manager",
+  "version": "1.0.0",
+  "description": "NodeJS + MySQL Project",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ro77en/nodejs-mysql-products-manager.git"
+  },
+  "keywords": [
+    "express",
+    "express-handlebars",
+    "bootstrap",
+    "mysql"
+  ],
+  "author": "Lucas Dantas",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ro77en/nodejs-mysql-products-manager/issues"
+  },
+  "homepage": "https://github.com/ro77en/nodejs-mysql-products-manager#readme"
+}
