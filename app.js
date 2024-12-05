@@ -13,6 +13,9 @@ const mysql = require('mysql2');
 // app
 const app = express();
 
+// add bootstrap
+app.use('/bootstrap', express.static('./node_modules/bootstrap/dist'));
+
 // express-handlebars config
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
