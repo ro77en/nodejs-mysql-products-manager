@@ -7,3 +7,30 @@ form {
 form input {
     margin-bottom: 10px;
 }
+
+/* Products Cards */
+.card {
+    margin-top: 40px;
+}
+
+.card img {
+    padding: 20px;
+}
+
+.card a {
+    border-radius: 0;
+}
+
+.card a.btn.btn-danger {
+    border-radius: 0 0 5px 5px;
+}
+
+.text {
+    padding: 0 10px;
+    font-weight: 500;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
