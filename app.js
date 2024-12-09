@@ -95,6 +95,11 @@ app.get('/remover/:codigo&:imagem', (req, res) => {
     res.redirect('/');
 });
 
+// edit product form
+app.get('/editForm/:codigo', (req, res) => {
+    res.render('editForm');
+})
+
 // server
 app.listen(8080, () => {
     console.log('server running on http://localhost:8080');

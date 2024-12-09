@@ -8,6 +8,10 @@ form input {
     margin-bottom: 10px;
 }
 
+form input[type="submit"] {
+    margin-top: 10px;
+}
+
 /* Products Cards */
 .card {
     margin-top: 40px;
