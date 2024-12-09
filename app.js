@@ -25,6 +25,9 @@ app.use('/bootstrap', express.static('./node_modules/bootstrap/dist'));
 // add custom css
 app.use('/css', express.static('./css'));
 
+// use img folder
+app.use('/img', express.static('./img'));
+
 // express-handlebars config
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
@@ -45,7 +48,12 @@ connection.connect((err) => {
 
 // main route
 app.get('/', (req, res) => {
-    res.render('forms');
+    // SQL query
+    let sql = 'SELECT * FROM produtos';
+    connection.query(sql, (err, response) => {
+        if (err) throw err;
+        res.render('forms', {productsData: response});
+    })
 });
 
 // add product route
