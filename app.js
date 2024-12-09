@@ -77,6 +77,13 @@ app.post('/cadastrar', (req, res) => {
     res.redirect('/');
 })
 
+// remove product
+app.get('/remover/:codigo&:imagem', (req, res) => {
+    console.log(req.params.codigo);
+    console.log(req.params.imagem);
+    res.end();
+})
+
 // server
 app.listen(8080, () => {
     console.log('server running on http://localhost:8080');
