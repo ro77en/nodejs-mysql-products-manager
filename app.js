@@ -13,6 +13,9 @@ const config = require('./config.json');
 // import mysql2 moduule
 const mysql = require('mysql2');
 
+// file systems
+const fs = require('fs');
+
 // app
 const app = express();
 
@@ -77,12 +80,20 @@ app.post('/cadastrar', (req, res) => {
     res.redirect('/');
 })
 
-// remove product
+// remove product route
 app.get('/remover/:codigo&:imagem', (req, res) => {
-    console.log(req.params.codigo);
-    console.log(req.params.imagem);
-    res.end();
-})
+    let sql = `DELETE FROM produtos WHERE codigo = ${req.params.codigo}`;
+    connection.query(sql, (err, response) => {
+        if (err) throw err;
+        // remove product file from img folder
+        fs.unlink(__dirname + '/img/' + req.params.imagem, (err) => {
+            if (err) console.log('Falha ao remover a imagem: ', err);
+        });
+        console.log(response);
+    });
+
+    res.redirect('/');
+});
 
 // server
 app.listen(8080, () => {
