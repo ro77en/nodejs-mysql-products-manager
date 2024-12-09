@@ -24,6 +24,10 @@ app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
 app.set('views', './views');
 
+// use json data 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 // mysql connection config
 const connection = mysql.createConnection(config.db);
 
@@ -37,6 +41,12 @@ connection.connect((err) => {
 app.get('/', (req, res) => {
     res.render('forms');
 });
+
+// add product route
+app.post('/cadastrar', (req, res) => {
+    console.log(req.body);
+    res.end();
+})
 
 // server
 app.listen(8080, () => {

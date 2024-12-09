@@ -4,10 +4,10 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-6">
-                <form>
-                    <input class="form-control" type="text" placeholder="Nome do produto">
-                    <input class="form-control" type="number" placeholder="Valor do produto">
-                    <input class="form-control" type="file">
+                <form action="/cadastrar" method="post">
+                    <input class="form-control" type="text" name="nome" placeholder="Nome do produto">
+                    <input class="form-control" type="number" name="valor" placeholder="Valor do produto">
+                    <input class="form-control" name="imagem" type="file">
                     <input class="btn btn-primary" type="submit" value="Cadastrar">
                 </form>
             </div>
