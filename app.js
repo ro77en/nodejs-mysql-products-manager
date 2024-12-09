@@ -1,6 +1,9 @@
 // import express module
 const express = require('express');
 
+// fileupload module
+const fileUpload = require('express-fileupload');
+
 // import express-handlebars
 const { engine } = require('express-handlebars');
 
@@ -12,6 +15,9 @@ const mysql = require('mysql2');
 
 // app
 const app = express();
+
+// use express-fileupload
+app.use(fileUpload());
 
 // add bootstrap
 app.use('/bootstrap', express.static('./node_modules/bootstrap/dist'));
@@ -45,6 +51,9 @@ app.get('/', (req, res) => {
 // add product route
 app.post('/cadastrar', (req, res) => {
     console.log(req.body);
+    console.log(req.files.imagem.name);
+
+    req.files.imagem.mv(__dirname + '/img/' + req.files.imagem.name);
     res.end();
 })
 
