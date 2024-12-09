@@ -16,6 +16,9 @@ const app = express();
 // add bootstrap
 app.use('/bootstrap', express.static('./node_modules/bootstrap/dist'));
 
+// add custom css
+app.use('/css', express.static('./css'));
+
 // express-handlebars config
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');

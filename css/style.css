@@ -1,0 +1,9 @@
+/* Form styles */
+form {
+    margin-top: 30px;
+    text-align: center;
+}
+
+form input {
+    margin-bottom: 10px;
+}
