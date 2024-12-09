@@ -50,11 +50,23 @@ app.get('/', (req, res) => {
 
 // add product route
 app.post('/cadastrar', (req, res) => {
-    console.log(req.body);
-    console.log(req.files.imagem.name);
+    // get product data
+    let nome = req.body.nome;
+    let valor = req.body.valor;
+    let imagem = req.files.imagem.name;
 
-    req.files.imagem.mv(__dirname + '/img/' + req.files.imagem.name);
-    res.end();
+    // sql query
+    let sql = `INSERT INTO produtos (nome, valor, imagem) VALUES ('${nome}', ${valor}, '${imagem}')`;
+    connection.query(sql, (err, response) => {
+        // Error
+        if (err) throw err;
+        // Success
+        req.files.imagem.mv(__dirname + '/img/' + req.files.imagem.name);
+        console.log(response);
+    });
+
+    // redirect
+    res.redirect('/');
 })
 
 // server
